@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Array {
     public static int sumPlus = 0, count = 0, buf;
         public static void main(String[] args) {
-            int size = 5;
+            int size = 10;
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите элементы массива: ");
             int[] array = new int[size];
