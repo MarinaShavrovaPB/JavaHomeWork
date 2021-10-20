@@ -9,7 +9,7 @@ public class Bingo {
         int count = 0;
 
         int random_number = a + (int) (Math.random() * b);
-        System.out.println("Случайное число: " + random_number);
+        System.out.println("Угадайте число от 1 до 100");
 
         Scanner scanner = new Scanner(System.in);
 
