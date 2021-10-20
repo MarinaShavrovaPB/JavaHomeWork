@@ -32,8 +32,12 @@ public class Bingo {
                 count ++;
             }
             } else if (!isDigit(c)){
-                System.out.println("Вы вышли из программы!");
-                break;
+                if (oper.equals("x") || oper.equals("х")){
+                    System.out.println("Вы вышли из программы!");
+                    break;
+                }else {
+                    System.out.println("Для выхода из системы нажмите - \"x\"");
+                }
             }
         }
     }
