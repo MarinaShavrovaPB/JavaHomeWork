@@ -13,24 +13,30 @@ public class Bingo {
 
         Scanner scanner = new Scanner(System.in);
 
-        for (int i=0; i<100; i++){
+        while (a != random_number) {
             System.out.println("Введите загаданное число: ");
             String oper = scanner.next();
             char c = oper.charAt(0);
 
-            if ( isDigit(c)) {
+            if (isDigit(c)) {
                 int operand = Integer.parseInt(oper);
-            if (random_number == operand){
-                count ++;
-                System.out.println("Число угадано!"+ "\nЧисло угадали с "+count+" попытки");
-                break;
-            } else if (random_number > operand){
-                System.out.println("Введенное число меньше загаданного!");
-                count ++;
-            }else if (random_number < operand){
-                System.out.println("Введенное число больше загаданного!");
-                count ++;
-            }
+
+                if (count == 100){
+                    System.out.println("Вы использовали все попытки угадывания загаданного числа! Загаданное число было: "+random_number);
+                    break;
+                } else {
+                    if (random_number == operand) {
+                        count++;
+                        System.out.println("Число угадано!" + "\nЧисло угадали с " + count + " попытки");
+                        break;
+                    } else if (random_number > operand) {
+                        System.out.println("Введенное число меньше загаданного!");
+                        count++;
+                    } else if (random_number < operand) {
+                        System.out.println("Введенное число больше загаданного!");
+                        count++;
+                    }
+                }
             } else if (!isDigit(c)){
                 if (oper.equals("x") || oper.equals("х")){
                     System.out.println("Вы вышли из программы!");
