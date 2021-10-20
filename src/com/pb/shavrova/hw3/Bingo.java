@@ -19,6 +19,7 @@ public class Bingo {
             char c = oper.charAt(0);
 
             if (isDigit(c)) {
+                try{
                 int operand = Integer.parseInt(oper);
 
                 if (count == 100){
@@ -36,6 +37,10 @@ public class Bingo {
                         System.out.println("Введенное число больше загаданного!");
                         count++;
                     }
+                }
+                }catch (NumberFormatException e){
+                    System.out.println("Введено не целое число, программа принимает только целые числа");
+                    continue;
                 }
             } else if (!isDigit(c)){
                 if (oper.equals("x") || oper.equals("х")){
