@@ -23,9 +23,9 @@ public class Array {
 
     public static int sum(int[] array){
         for (int i=0; i != array.length; i++){
+            sumPlus = sumPlus +array[i];
             if (array[i] > 0){
-                sumPlus = sumPlus +array[i];
-                count++;
+              count++;
             }
         }
             return sumPlus;

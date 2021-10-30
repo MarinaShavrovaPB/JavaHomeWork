@@ -19,13 +19,14 @@ public class Anagram {
 
     static boolean toAnagram(String s1, String s2) {
 
-        s1=s1.toLowerCase();
+        char[] c1=s1.toLowerCase()
+                .replaceAll("[^A-Za-zА-Яа-я]", "")
+                .toCharArray();
+
         s2=s2.toLowerCase();
 
-        String result1 = s1.replaceAll("[^A-Za-zА-Яа-я]", "");
-        String result2 = s2.replaceAll("[^A-Za-zА-Яа-я]", "");
+       String result2 = s2.replaceAll("[^A-Za-zА-Яа-я]", "");
 
-        char[] c1 = result1.toCharArray();
         char[] c2 = result2.toCharArray();
 
         Arrays.sort(c1);
