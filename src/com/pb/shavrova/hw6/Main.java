@@ -1,9 +1,11 @@
 package com.pb.shavrova.hw6;
 
-public class Main {
-    public static void main(String[] args) {
-        Veterinarian veterinarian = new Veterinarian();
 
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+
+public class Main {
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
         Animal animal1 = new Dog("Собака","мясо", "кровать");
         Animal animal2 = new Cat("Кот","рыба", "подушка =)");
         Animal animal3 = new Horse("Лошадь","сахарок", "конюшня");
@@ -17,10 +19,15 @@ public class Main {
         animal2.sleep();
         animal3.sleep();
 
-        System.out.println("\nНа прием пришли животные: ");
-        for (Animal animal : animals) {
-            veterinarian.treatAnimal(animal);
-        }
+        Class clazz = Class.forName("com.pb.shavrova.hw6.Veterinarian");
+        Constructor constr = clazz.getConstructor(new Class[] {});
+        Object obj = constr.newInstance();
+        if (obj instanceof Veterinarian) {
 
+            System.out.println("\nНа прием пришли животные: ");
+            for (Animal animal : animals) {
+                ((Veterinarian) obj).treatAnimal(animal);
+            }
+        }
     }
 }

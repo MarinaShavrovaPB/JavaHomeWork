@@ -4,7 +4,7 @@ import javax.sound.midi.Soundbank;
 
 public class Veterinarian {
 
-    public void treatAnimal(Animal animal) {
+    public static void treatAnimal(Animal animal) {
         System.out.println(animal);
     }
 }
