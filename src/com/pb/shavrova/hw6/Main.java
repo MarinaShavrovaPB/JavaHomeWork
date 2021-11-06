@@ -19,6 +19,14 @@ public class Main {
         animal2.sleep();
         animal3.sleep();
 
+        System.out.println("-----------------------");
+        for (Animal animal : animals) {
+            animal.sleep();
+            animal.makeNoise();
+            animal.eat();
+        }
+        System.out.println("-----------------------");
+
         Class clazz = Class.forName("com.pb.shavrova.hw6.Veterinarian");
         Constructor constr = clazz.getConstructor(new Class[] {});
         Object obj = constr.newInstance();

@@ -2,14 +2,16 @@ package com.pb.shavrova.hw6;
 
 import java.util.Objects;
 
-public class Dog extends Animal{
+public class Dog extends Animal {
     private String color;
 
     public Dog(String name, String food, String location) {
         super(name, food, location);
     }
+
     public Dog() {
     }
+
     public String getColor() {
         return color;
     }
@@ -27,14 +29,17 @@ public class Dog extends Animal{
     public void makeNoise() {
         System.out.println(this.getName() + " - произносит звуки - Гав!");
     }
+
     @Override
     public String toString() {
-        return "Животное: "+ getName()+", ест: "+getFood()+", спит: "+getLocation();
+        return "Животное: " + getName() + ", ест: " + getFood() + ", спит: " + getLocation();
     }
+
     @Override
     public int hashCode() {
         return Objects.hashCode(color);
     }
+
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
@@ -43,7 +48,7 @@ public class Dog extends Animal{
         if (obj == null) {
             return false;
         }
-        if (obj == null || obj.getClass() != getClass()){
+        if (obj == null || obj.getClass() != getClass()) {
             return false;
         }
         Dog dog = (Dog) obj;
