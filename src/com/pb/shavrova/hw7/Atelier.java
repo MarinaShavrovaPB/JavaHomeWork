@@ -22,7 +22,6 @@ public class Atelier {
                 System.out.println(clothe);
             }
         }
-
     }
     public static void dressWomen(Clothes[] clothes){
         System.out.println("Женская одежда: ");
