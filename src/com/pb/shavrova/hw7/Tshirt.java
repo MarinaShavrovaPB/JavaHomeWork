@@ -10,10 +10,14 @@ public class Tshirt extends Clothes implements WomenClothes, ManClothes{
         super(size, color, price);
     }
 
+
     @Override
-    public String toString() {
-        return "Футболка (размер - " + getSize() +
-                ", цвет - " + getColor() +
-                ", цена - " + getPrice();
+    public void dressMale() {
+        System.out.println("Футболки носит мужчина");
+    }
+
+    @Override
+    public void dressWomen() {
+        System.out.println("Футболки носит женщина");
     }
 }

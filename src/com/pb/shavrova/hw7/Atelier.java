@@ -1,8 +1,5 @@
 package com.pb.shavrova.hw7;
 
-import static com.pb.shavrova.hw7.Clothes.dressMan;
-import static com.pb.shavrova.hw7.Clothes.dressWomen;
-
 public class Atelier {
     public static void main(String[] args) {
         Clothes[] clothes = {
@@ -26,5 +23,22 @@ public class Atelier {
         dressWomen(clothes);
     }
 
+    public static void dressMan(Clothes[] clothes){
+        System.out.println("Мужская одежда: ");
+        for (Clothes clothe : clothes) {
+            if (clothe instanceof ManClothes) {
+                System.out.println(clothe);
+            }
+        }
+    }
+    public static void dressWomen(Clothes[] clothes){
+        System.out.println("Женская одежда: ");
+        for (Clothes clothe : clothes) {
+            if (clothe instanceof WomenClothes) {
+                System.out.println(clothe);
+            }
+        }
+
+    }
 
 }

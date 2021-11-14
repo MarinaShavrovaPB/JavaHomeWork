@@ -10,10 +10,14 @@ public class Pants extends Clothes implements ManClothes, WomenClothes {
         super(size, color, price);
     }
 
+
     @Override
-    public String toString() {
-        return "Штаны (размер - " + getSize() +
-                ", цвет - " + getColor() +
-                ", цена - " + getPrice();
+    public void dressMale() {
+        System.out.println("Штаны одевает мужчина");
+    }
+
+    @Override
+    public void dressWomen() {
+        System.out.println("Штаны одевает женшина");
     }
 }

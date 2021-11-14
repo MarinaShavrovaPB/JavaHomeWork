@@ -10,10 +10,9 @@ public class Tie extends Clothes implements ManClothes{
         super(size, color, price);
     }
 
+
     @Override
-    public String toString() {
-        return "Галстук (размер - " + getSize() +
-                ", цвет - " + getColor() +
-                ", цена - " + getPrice();
+    public void dressMale() {
+        System.out.println("Галстук носит мужчина");
     }
 }

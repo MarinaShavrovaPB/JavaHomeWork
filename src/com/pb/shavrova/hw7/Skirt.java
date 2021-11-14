@@ -11,9 +11,7 @@ public class Skirt extends Clothes implements WomenClothes{
     }
 
     @Override
-    public String toString() {
-        return "Юбка (размер - " + getSize() +
-                ", цвет - " + getColor() +
-                ", цена - " + getPrice();
+    public void dressWomen() {
+        System.out.println("Юбки носит женщина");
     }
 }
