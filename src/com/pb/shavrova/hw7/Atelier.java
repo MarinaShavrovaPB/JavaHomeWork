@@ -12,7 +12,14 @@ public class Atelier {
                 new Tie(Size.L, "синий", 170),
                 new Tie(Size.L, "красный", 180),
         };
+
+        System.out.println("Список размеров: ");
+        for(Size s : Size.values()) {
+            System.out.println("Размер "+ s.name() + " соответствует значению - " + s.getEuroSize() + " евроразмера");
+        }
+        System.out.println();
         dressMan(clothes);
+        System.out.println();
         dressWomen(clothes);
     }
     public static void dressMan(Clothes[] clothes){
@@ -32,4 +39,5 @@ public class Atelier {
         }
 
     }
+
 }
