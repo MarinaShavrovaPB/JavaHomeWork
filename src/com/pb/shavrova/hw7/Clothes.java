@@ -25,4 +25,22 @@ public abstract class Clothes {
     public double getPrice() {
         return price;
     }
+
+    public static void dressMan(Clothes[] clothes){
+        System.out.println("Мужская одежда: ");
+        for (Clothes clothe : clothes) {
+            if (clothe instanceof ManClothes) {
+                System.out.println(clothe);
+            }
+        }
+    }
+    public static void dressWomen(Clothes[] clothes){
+        System.out.println("Женская одежда: ");
+        for (Clothes clothe : clothes) {
+            if (clothe instanceof WomenClothes) {
+                System.out.println(clothe);
+            }
+        }
+
+    }
 }

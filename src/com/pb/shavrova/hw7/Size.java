@@ -1,5 +1,7 @@
 package com.pb.shavrova.hw7;
 
+import com.sun.org.apache.xerces.internal.impl.dv.XSSimpleType;
+
 enum Size {
     XXS(32) {
         @Override
@@ -11,6 +13,7 @@ enum Size {
     S(36),
     M(38),
     L(40);
+
     Size (int euroSize) {
         this.euroSize = euroSize;
     }
