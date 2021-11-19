@@ -13,11 +13,11 @@ public class Tshirt extends Clothes implements WomenClothes, ManClothes{
 
     @Override
     public void dressMale() {
-        System.out.println("Футболки носит мужчина");
+        System.out.println("Футболка");
     }
 
     @Override
     public void dressWomen() {
-        System.out.println("Футболки носит женщина");
+        System.out.println("Футболка");
     }
 }

@@ -1,5 +1,7 @@
 package com.pb.shavrova.hw7;
 
+import com.pb.shavrova.hw6.Veterinarian;
+
 public class Atelier {
     public static void main(String[] args) {
         Clothes[] clothes = {
@@ -27,6 +29,7 @@ public class Atelier {
         System.out.println("Мужская одежда: ");
         for (Clothes clothe : clothes) {
             if (clothe instanceof ManClothes) {
+                ((ManClothes) clothe).dressMale();
                 System.out.println(clothe);
             }
         }
@@ -35,6 +38,7 @@ public class Atelier {
         System.out.println("Женская одежда: ");
         for (Clothes clothe : clothes) {
             if (clothe instanceof WomenClothes) {
+                ((WomenClothes) clothe).dressWomen();
                 System.out.println(clothe);
             }
         }

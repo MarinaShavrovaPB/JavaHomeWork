@@ -13,6 +13,6 @@ public class Tie extends Clothes implements ManClothes{
 
     @Override
     public void dressMale() {
-        System.out.println("Галстук носит мужчина");
+        System.out.println("Галстук");
     }
 }

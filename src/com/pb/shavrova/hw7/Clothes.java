@@ -28,9 +28,8 @@ public abstract class Clothes {
 
     @Override
     public String toString() {
-        return "Одежда в наличии: " +
-                "размер " + size +
-                ", цвет " + color + '\'' +
-                ", цена " + price;
+        return  "размер - " + size +
+                ", цвет - " + color + '\'' +
+                ", цена - " + price;
     }
 }
