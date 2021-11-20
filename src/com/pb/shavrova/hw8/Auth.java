@@ -28,10 +28,9 @@ public class Auth {
         System.out.println(passwordNew);
     }
 
-    public Auth(String login, String password, String confirmPassword) {
+    public Auth(String login, String password) {
         this.login = login;
         this.password = password;
-        this.confirmPassword = confirmPassword;
     }
 
     public String getLogin() {
@@ -60,8 +59,9 @@ public class Auth {
 
     public void signUp(String login, String password, String confirmPassword) {
         try {
-           checkLogInInfo(this.login, this.password, this.confirmPassword, "[\\w]{5,20}");
-           myBD(login, password);
+            checkLoginInfo(login, "^[a-zA-Z0-9]{5,20}$");
+            checkPasswordInfo(password, confirmPassword, "^[a-zA-Z0-9_]{5,}$");
+            myBD(login, password);
 
         } catch (WrongLoginException | WrongPasswordException e) {
             e.printStackTrace();
@@ -101,13 +101,17 @@ public class Auth {
         return true;
     }
 
-    private boolean checkLogInInfo(String login, String password, String confirmPassword, String regex)
-            throws WrongLoginException, WrongPasswordException {
-        if (!login.matches(regex)) {
+    private boolean checkLoginInfo(String login, String regexLogin)
+            throws WrongLoginException {
+        if (!login.matches(regexLogin)) {
             throw new WrongLoginException();
-        } else if (!password.matches(regex) ||
-                !confirmPassword.matches(regex) ||
-                !password.equals(confirmPassword)) {
+        }
+        return true;
+    }
+
+    private boolean checkPasswordInfo(String password, String confirmPassword, String regexPass)
+            throws WrongPasswordException {
+        if ((!password.matches(regexPass)) || (!password.equals(confirmPassword))) {
             throw new WrongPasswordException();
         }
         return true;

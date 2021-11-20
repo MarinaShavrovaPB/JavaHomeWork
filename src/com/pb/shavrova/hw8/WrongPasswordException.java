@@ -1,6 +1,6 @@
 package com.pb.shavrova.hw8;
 
-public class WrongPasswordException extends Throwable {
+public class WrongPasswordException extends Exception {
     private String error;
 
     public WrongPasswordException() {
