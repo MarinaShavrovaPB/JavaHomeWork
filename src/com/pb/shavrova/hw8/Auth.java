@@ -104,7 +104,7 @@ public class Auth {
     private boolean checkLoginInfo(String login, String regexLogin)
             throws WrongLoginException {
         if (!login.matches(regexLogin)) {
-            throw new WrongLoginException();
+            throw new WrongLoginException("Неправильно введен логин!");
         }
         return true;
     }
@@ -112,7 +112,7 @@ public class Auth {
     private boolean checkPasswordInfo(String password, String confirmPassword, String regexPass)
             throws WrongPasswordException {
         if ((!password.matches(regexPass)) || (!password.equals(confirmPassword))) {
-            throw new WrongPasswordException();
+            throw new WrongPasswordException("Неправильно введен пароль!");
         }
         return true;
     }
