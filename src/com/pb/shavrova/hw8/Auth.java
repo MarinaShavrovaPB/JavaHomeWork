@@ -60,10 +60,13 @@ public class Auth {
 
     public void signUp(String login, String password, String confirmPassword) {
         try {
-            checkLogInInfo(this.login, this.password, this.confirmPassword, "[\\w]{5,20}");
-            myBD(login, password);
+           checkLogInInfo(this.login, this.password, this.confirmPassword, "[\\w]{5,20}");
+           myBD(login, password);
+
         } catch (WrongLoginException | WrongPasswordException e) {
             e.printStackTrace();
+            System.err.println("Вы ввели неверно данные при регистрации");
+            System.exit(1);
         }
     }
 
@@ -75,12 +78,17 @@ public class Auth {
                 throw new Exception("String can not be empty!");
             } catch (Exception e) {
                 e.printStackTrace();
+                System.err.println("Поля с данными не могут быть пустыми");
+                System.exit(1);
             }
         }
         try {
             validLoginAndPasswor(login, password, loginDB, passwordDB);
         } catch (WrongLoginException | WrongPasswordException e) {
             e.printStackTrace();
+            System.err.println("Вы ввели неверно данные при авторизации");
+            System.exit(1);
+
         }
     }
 

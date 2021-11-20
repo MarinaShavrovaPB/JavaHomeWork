@@ -18,8 +18,12 @@ public class OnlineShop {
             input(login, password, confirmPassword);
 
             Auth auth = new Auth(login, password, confirmPassword);
-            auth.signUp(login, password, confirmPassword);
-
+            try {
+                auth.signUp(login, password, confirmPassword);
+            }catch (Exception e){
+                System.err.println("Вы ввели неверно данные при регистрации");
+                System.exit(1);
+            }
             System.out.println("Регистрация прошла успешно!");
             System.out.println("Авторизуйтесь в системе\n Введите логин:");
             login = scanner.nextLine();
