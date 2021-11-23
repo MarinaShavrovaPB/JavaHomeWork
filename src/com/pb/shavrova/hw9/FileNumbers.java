@@ -1,26 +1,51 @@
 package com.pb.shavrova.hw9;
 
+
 import java.io.*;
+import java.util.logging.FileHandler;
+import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
+
 
 public class FileNumbers {
     private static String pathMain = "C:\\Users\\Marinka\\Desktop\\test_test\\";
+    private static final Logger LOGGER = Logger.getLogger("MyLog");
 
     public static void main(String[] args) throws IOException {
+        LOGGER.info("Запись логов:");
+        FileHandler fh;
+        createFoulder();
+        try {
+            fh = new FileHandler(pathMain + "MyLogFile.log");
+            LOGGER.addHandler(fh);
+            SimpleFormatter formatter = new SimpleFormatter();
+            fh.setFormatter(formatter);
+
+        } catch (SecurityException e) {
+            e.printStackTrace();
+            LOGGER.warning("ERROR!" + e);
+        } catch (IOException e) {
+            e.printStackTrace();
+            LOGGER.warning("ERROR!" + e);
+        }
+
         int[][] a = new int[10][10];
         int max_secret = 100;
 
-        createFoulder();
         createArray(a, max_secret);
-
         createNumbersFile(a, pathMain + "numbers.txt");
+
         System.out.println("Преобразованный массив из файла:");
         int[][] nArr = createOddNumbersFile(pathMain + "numbers.txt"); // читаем из файла в другой массив для проверки
-        createNumbersFile(nArr, pathMain + "odd-numbers.txt"); // сохраняем в файл
 
+
+        createNumbersFile(nArr, pathMain + "odd-numbers.txt"); // сохраняем в файл
         printArray(nArr);
+
+        LOGGER.info("Успешное записывание логов!");
     }
 
-    private static void createNumbersFile(int[][] arr, String path) {
+    private static String createNumbersFile(int[][] arr, String path) {
         try {
             BufferedWriter bw = new BufferedWriter(new FileWriter(path));
             for (int i = 0; i < 10; i++) {
@@ -33,7 +58,9 @@ public class FileNumbers {
             bw.close();
         } catch (IOException e) {
             e.printStackTrace();
+            LOGGER.warning("ERROR: Ошибка записи массива в файл! " + path);
         }
+        return path;
     }
 
 
@@ -72,28 +99,30 @@ public class FileNumbers {
             }
         } catch (IOException e) {
             e.printStackTrace();
+            LOGGER.warning("ERROR!" + e);
+
         }
         return arr;
     }
 
-    private static String createFoulder() {
+    private static void createFoulder() {
         File theDir = new File(pathMain);
-
+        String resultLog = null;
         if (!theDir.exists()) {
-            System.out.println("Создание директории: " + theDir.getName());
+            LOGGER.info("Создание директории: " + theDir.getName());
             boolean result = false;
 
             try {
                 theDir.mkdir();
                 result = true;
             } catch (SecurityException se) {
-                System.out.println("Не удалось создать папку!");
+                LOGGER.warning("ERROR!" + se + " Не удалось создать папку!");
             }
             if (result) {
-                System.out.println("Директория создана");
+                LOGGER.info("Директория создана");
+
             }
         }
-        return "";
     }
 
 
