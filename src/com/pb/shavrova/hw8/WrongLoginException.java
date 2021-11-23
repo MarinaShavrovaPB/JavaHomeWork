@@ -4,16 +4,16 @@ public class WrongLoginException extends Exception {
     private String error;
 
     public WrongLoginException() {
-        error = "Неправильно введен логин";
+        this.error = "Неправильно введен логин";
     }
 
     public WrongLoginException(String message) {
         super(message);
-        error = message;
+        this.error = message;
     }
 
     @Override
     public String toString() {
-        return "Ошибка: " + error;
+        return "Ошибка: " + this.error;
     }
 }

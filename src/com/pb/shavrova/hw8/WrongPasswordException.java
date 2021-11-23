@@ -4,16 +4,16 @@ public class WrongPasswordException extends Exception {
     private String error;
 
     public WrongPasswordException() {
-        error = "Неправильно введен пароль";
+        this.error = "Неправильно введен пароль";
     }
 
     public WrongPasswordException(String message) {
         super(message);
-        error = message;
+        this.error = message;
     }
 
     @Override
     public String toString() {
-        return "Ошибка: " + error;
+        return "Ошибка: " + this.error;
     }
 }
