@@ -1,0 +1,14 @@
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers createArray
+INFO: Создание массива с рандомными числами от 1 до 99
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers printArray
+INFO: Вывод массива в консоль
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers createNumbersFile
+INFO: Запись данных в файл. Путь к файлу: files\numbers.txt
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers createOddNumbersFile
+INFO: Считывание файла, с заменой четных чисел на 0
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers createNumbersFile
+INFO: Запись данных в файл. Путь к файлу: files\odd-numbers.txt
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers printArray
+INFO: Вывод массива в консоль
+ноя 28, 2021 6:39:09 PM com.pb.shavrova.hw9.FileNumbers main
+INFO: Успешное записывание логов!
