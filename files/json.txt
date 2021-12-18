@@ -4,19 +4,19 @@
   "birthday" : "12.12.2000",
   "phones" : [ "380501111111", "380505555555" ],
   "address" : "Тестовый",
-  "dateOfEditing" : 1639843602632
+  "dateOfEditing" : "2021-12-18"
 }, {
   "name" : "Тест 2",
   "surname" : "Тест 2",
   "birthday" : "01.12.2000",
   "phones" : [ "0989899899", "380501111100" ],
   "address" : "Тестовый",
-  "dateOfEditing" : 1639843602632
+  "dateOfEditing" : "2021-12-18"
 }, {
-  "name" : "Марина",
-  "surname" : "Шаврова",
-  "birthday" : "23.10.1989",
-  "phones" : [ "0997568172", "0938226677" ],
-  "address" : "тететете",
-  "dateOfEditing" : 1639843626604
+  "name" : "q",
+  "surname" : "q",
+  "birthday" : "q",
+  "phones" : [ "444" ],
+  "address" : "q",
+  "dateOfEditing" : "2021-12-18"
 } ]

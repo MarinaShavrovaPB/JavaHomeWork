@@ -3,12 +3,15 @@ package com.pb.shavrova.hw11;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import java.io.FileWriter;
 import java.io.Writer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.*;
 
 
@@ -18,6 +21,13 @@ public class Main {
 
 
     public static void main(String[] args) throws JsonProcessingException {
+        // для работы с полями типа LocalDate
+        SimpleModule module = new SimpleModule();
+        module.addSerializer(LocalDateTime.class, new LocalDateSerializer());
+        module.addDeserializer(LocalDateTime.class, new LocalDateDeserializer());
+        mapper.registerModule(module);
+
+
         phoneBook.add(new PhoneBook("Тест 1", "Тест 1", "12.12.2000", Arrays.asList("380501111111", "380505555555"), "Тестовый"));
         phoneBook.add(new PhoneBook("Тест 2", "Тест 2", "01.12.2000", Arrays.asList("0989899899", "380501111100"), "Тестовый"));
 
@@ -135,7 +145,8 @@ public class Main {
                 String phone = scanner.next();
                 for (PhoneBook item : phoneBook) {
                     List<String> myList = new ArrayList<String>(Arrays.asList(phone.split("")));
-
+                    System.out.println("myList "+myList);
+                    System.out.println("item.getPhones() "+item.getPhones());
                     if (Objects.equals(item.getPhones(), myList)) {
                         searchContact = item.toString();
                         break;
@@ -350,7 +361,7 @@ public class Main {
                         System.out.println("Нет возможности определить действие!");
                         editElement = false;
                 }
-                Date date = new Date();
+            LocalDateTime date = LocalDateTime.now();
                 phoneBook.stream().filter(item -> Objects.equals(item.getName(), name)).findFirst().ifPresent(item -> item.setDateOfEditing(date));
             }
 

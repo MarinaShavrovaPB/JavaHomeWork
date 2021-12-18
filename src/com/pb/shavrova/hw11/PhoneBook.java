@@ -1,5 +1,11 @@
 package com.pb.shavrova.hw11;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -9,7 +15,9 @@ public class PhoneBook {
     private String birthday;
     private List<String> phones;
     private String address;
-    private Date dateOfEditing = new Date();
+    @JsonDeserialize(using = LocalDateDeserializer.class)
+    @JsonSerialize(using = LocalDateSerializer.class)
+    private LocalDateTime dateOfEditing = LocalDateTime.now();;
 
     public String getName() {
         return name;
@@ -31,7 +39,7 @@ public class PhoneBook {
         return address;
     }
 
-    public Date getDateOfEditing() {
+    public LocalDateTime getDateOfEditing() {
         return dateOfEditing;
     }
 
@@ -43,7 +51,8 @@ public class PhoneBook {
         this.address = address;
     }
 
-    public void setDateOfEditing(Date dateOfEditing) {
+    public void setDateOfEditing(LocalDateTime dateOfEditing) {
+
         this.dateOfEditing = dateOfEditing;
     }
 
