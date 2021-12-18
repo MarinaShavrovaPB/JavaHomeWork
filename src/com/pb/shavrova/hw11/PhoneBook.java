@@ -81,9 +81,9 @@ public class PhoneBook {
         return "Данные из телефонной книги:" +
                 "\n Имя - '" + name + '\'' +
                 "\n Фамилия - '" + surname + '\'' +
-                "\n День рождения - '" + birthday +
-                "\n Телефон - '" + phones +
+                "\n День рождения - '" + birthday + '\'' +
+                "\n Телефон - '" + phones + '\'' +
                 "\n Адрес - '" + address + '\'' +
-                "\n Дата внесения изменений - " + dateOfEditing;
+                "\n Дата внесения изменений - '" + dateOfEditing+ '\'';
     }
 }

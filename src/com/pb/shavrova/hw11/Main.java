@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import jdk.nashorn.internal.runtime.JSONListAdapter;
 
 import java.io.FileWriter;
 import java.io.Writer;
@@ -28,8 +29,8 @@ public class Main {
         mapper.registerModule(module);
 
 
-        phoneBook.add(new PhoneBook("Тест 1", "Тест 1", "12.12.2000", Arrays.asList("380501111111", "380505555555"), "Тестовый"));
-        phoneBook.add(new PhoneBook("Тест 2", "Тест 2", "01.12.2000", Arrays.asList("0989899899", "380501111100"), "Тестовый"));
+        phoneBook.add(new PhoneBook("Тест_1", "Тест_1", "12.12.2000", Arrays.asList("380501111111", "380505555555"), "Тестовый"));
+        phoneBook.add(new PhoneBook("Тест_2", "Тест_2", "01.12.2000", Arrays.asList("0989899899", "380501111100"), "Тестовый"));
 
         Scanner scanner = new Scanner(System.in);
         while (true) {
@@ -103,8 +104,8 @@ public class Main {
         String birthday = scanner.next();
 
         System.out.println("Введите адрес: ");
-        String address = scanner.next();
-
+        scanner.nextLine();
+        String address = scanner.nextLine();
         boolean morePhone = true;
         List<String> phones = new ArrayList<>();
 
@@ -144,13 +145,13 @@ public class Main {
                 System.out.println("Введите телефон:");
                 String phone = scanner.next();
                 for (PhoneBook item : phoneBook) {
-                    List<String> myList = new ArrayList<String>(Arrays.asList(phone.split("")));
-                    System.out.println("myList "+myList);
-                    System.out.println("item.getPhones() "+item.getPhones());
-                    if (Objects.equals(item.getPhones(), myList)) {
-                        searchContact = item.toString();
-                        break;
+                    for(int i=0;i< item.getPhones().size(); i++ ){
+                       if (item.getPhones().get(i).equals(phone)){
+                           searchContact = item.toString();
+                           break;
+                       }
                     }
+
                 }
                 if (searchContact == null) {
                     System.out.println("Контакт не найден!");
@@ -350,7 +351,7 @@ public class Main {
                         break;
                     case "3":
                         System.out.println("Введите новый адрес:");
-                        String newAddress = scanner.next();
+                        String newAddress = scanner.nextLine();
                         phoneBook.stream().filter(item -> Objects.equals(item.getName(), name) && Objects.equals(item.getSurname(), surname)).findFirst().ifPresent(item -> item.setAddress(newAddress));
                         break;
                     case "0":
