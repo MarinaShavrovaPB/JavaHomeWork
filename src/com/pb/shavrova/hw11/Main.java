@@ -341,13 +341,16 @@ public class Main {
                 switch (test) {
                     case "1":
                         System.out.println("Введите новый телефон:");
+                        List<String> phones = new ArrayList<>();
                         String newPhone = scanner.next();
-                        phoneBook.stream().filter(item -> Objects.equals(item.getName(), name) && Objects.equals(item.getSurname(), surname)).findFirst().ifPresent(item -> item.setAddress(newPhone));
+                        phones.add(newPhone);
+
+                        phoneBook.stream().filter(item -> Objects.equals(item.getName(), name) && Objects.equals(item.getSurname(), surname)).findFirst().ifPresent(item -> item.setPhones(phones));
                         break;
                     case "2":
                         System.out.println("Введите новую дату рождения:");
                         String newBirthday = scanner.next();
-                        phoneBook.stream().filter(item -> Objects.equals(item.getName(), name) && Objects.equals(item.getSurname(), surname)).findFirst().ifPresent(item -> item.setAddress(newBirthday));
+                        phoneBook.stream().filter(item -> Objects.equals(item.getName(), name) && Objects.equals(item.getSurname(), surname)).findFirst().ifPresent(item -> item.setBirthday(newBirthday));
                         break;
                     case "3":
                         System.out.println("Введите новый адрес:");

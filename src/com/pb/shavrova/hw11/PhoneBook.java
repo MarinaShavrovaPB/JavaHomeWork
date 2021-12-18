@@ -78,12 +78,12 @@ public class PhoneBook {
 
     @Override
     public String toString() {
-        return "Данные из телефонной книги:" +
-                "\n Имя - '" + name + '\'' +
-                "\n Фамилия - '" + surname + '\'' +
-                "\n День рождения - '" + birthday + '\'' +
-                "\n Телефон - '" + phones + '\'' +
-                "\n Адрес - '" + address + '\'' +
-                "\n Дата внесения изменений - '" + dateOfEditing+ '\'';
+        return "Данные из телефонной книги:\n" +
+                ", Имя - '" + name + '\'' +
+                ", Фамилия - '" + surname + '\'' +
+                ", День рождения - '" + birthday + '\'' +
+                ", Телефон - '" + phones + '\'' +
+                ", Адрес - '" + address + '\'' +
+                ", Дата внесения изменений - '" + dateOfEditing+ '\'';
     }
 }
