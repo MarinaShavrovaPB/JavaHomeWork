@@ -74,7 +74,7 @@ public class Main {
             System.out.println("Данные в буфере:");
             for (Integer s : buffer)
                 System.out.print(s + " ");
-            System.out.println("\nРабота производителя приостановлена на 5 секунды!");
+            System.out.println("\nРабота производителя приостановлена на 5 секунд!");
             Thread.currentThread().sleep(5000);
             buffer.notifyAll();
         }
